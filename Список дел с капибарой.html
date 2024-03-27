@@ -75,7 +75,7 @@
 
     // Редактирование задачек
     async function editTodo(index) {
-        const newTodo = prompt('Edit:', todos[index].task);
+        const newTodo = prompt('Редактировать:', todos[index].task);
         if (newTodo !== null && newTodo.trim() !== '') {
             todos[index].task = newTodo.trim();
             await displayTodos();
@@ -88,7 +88,6 @@
         await displayTodos();
     }
 
-    // Переключить выполнение задачи
     async function toggleTodoCompletion(index) {
         todos[index].completed = !todos[index].completed;
         await displayTodos();
