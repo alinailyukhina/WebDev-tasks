@@ -8,7 +8,6 @@
     body {
         font-family: Arial, sans-serif;
     }
-
     li {
         margin-bottom: 5px;
     }
@@ -21,12 +20,13 @@
 
 <h1>Задачки на день</h1>
 
-<input type="text" id="todoInput" placeholder="Enter task">
-<button onclick="addTodo()">Add</button>
+<input type="text" id="todoInput" placeholder="Что надо сделать?">
+<button onclick="addTodo()">Добавить</button>
 
 <ul id="todoList">
 </ul>
 
+// Капибара для успокоения
 <img src="https://i.pinimg.com/originals/45/77/f3/4577f391f235ba710badae65a91380ec.jpg">
 
 <script>
@@ -47,10 +47,10 @@
             span.textContent = todo.task;
             li.appendChild(span);
             const editButton = document.createElement('button');
-            editButton.textContent = 'Редактировать'; 
+            editButton.textContent = 'Редактировать';
             editButton.onclick = () => editTodo(index);
             const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Удалить'; 
+            deleteButton.textContent = 'Удалить';
             deleteButton.onclick = () => deleteTodo(index);
             li.appendChild(editButton);
             li.appendChild(deleteButton);
