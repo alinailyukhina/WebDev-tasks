@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Счетчик</title>
+</head>
+<body>
+<h1>Генерирую массив случайных чисел от 1 до 100 в кол-ве 10млн и высчитываю средний показатель</h1>
+<p id="average">Подожди, пожалуйста, я считаю...</p>
+
+<script>
+    // Создаем веб-воркер
+    const worker = new Worker('worker.js');
+
+    // Обрабатываем сообщение от веб-воркера
+    worker.onmessage = function(event) {
+        document.getElementById('average').textContent = 'Average: ' + event.data;
+    };
+</script>
+</body>
+</html>
