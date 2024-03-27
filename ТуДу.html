@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<h1>Todo List</h1>
+<h1>Задачки на день</h1>
 
 <input type="text" id="todoInput" placeholder="Enter task">
 <button onclick="addTodo()">Add</button>
@@ -31,10 +31,9 @@
 </ul>
 
 <script>
-    // Массив для хранения задач
     let todos = [];
 
-    // Функция для отображения задач
+    // Отображение задачек 
     function displayTodos() {
         const todoList = document.getElementById('todoList');
         todoList.innerHTML = '';
@@ -53,7 +52,7 @@
         });
     }
 
-    // Функция для добавления задачи
+    // Добавление задачек
     async function addTodo() {
         const todoInput = document.getElementById('todoInput');
         const todo = todoInput.value.trim();
@@ -64,7 +63,7 @@
         }
     }
 
-    // Функция для редактирования задачи
+    // Редактирование задачек
     async function editTodo(todo) {
         const newTodo = prompt('Edit task:', todo);
         if (newTodo !== null && newTodo.trim() !== '') {
@@ -76,7 +75,7 @@
         }
     }
 
-    // Функция для удаления задачи
+    // Удалить задачки
     async function deleteTodo(todo) {
         const index = todos.indexOf(todo);
         if (index !== -1) {
@@ -84,8 +83,6 @@
             await displayTodos();
         }
     }
-
-    // Инициализация отображения задач при загрузке страницы
     displayTodos();
 </script>
 
