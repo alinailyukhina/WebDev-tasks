@@ -41,7 +41,7 @@
             const li = document.createElement('li');
             li.textContent = todo;
             const editButton = document.createElement('button');
-            editButton.textContent = 'Edit';
+            editButton.textContent = 'Редактировать';
             editButton.onclick = () => editTodo(todo);
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete';
@@ -65,7 +65,7 @@
 
     // Редактирование задачек
     async function editTodo(todo) {
-        const newTodo = prompt('Edit task:', todo);
+        const newTodo = prompt('Редактировать:', todo);
         if (newTodo !== null && newTodo.trim() !== '') {
             const index = todos.indexOf(todo);
             if (index !== -1) {
