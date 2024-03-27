@@ -24,7 +24,7 @@
 
 <h1>Задачки на день</h1>
 
-<input type="text" id="todoInput" placeholder="Добавить задачку">
+<input type="text" id="todoInput" placeholder="Что надо сделать?">
 <button onclick="addTodo()">Добавить</button>
 
 <ul id="todoList">
@@ -51,10 +51,10 @@
             span.textContent = todo.task;
             li.appendChild(span);
             const editButton = document.createElement('button');
-            editButton.textContent = 'Edit';
+            editButton.textContent = 'Редактировать';
             editButton.onclick = () => editTodo(index);
             const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Delete';
+            deleteButton.textContent = 'Удалить';
             deleteButton.onclick = () => deleteTodo(index);
             li.appendChild(editButton);
             li.appendChild(deleteButton);
