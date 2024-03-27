@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todo List</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    button {
+        margin-left: 5px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Todo List</h1>
+
+<input type="text" id="todoInput" placeholder="Enter task">
+<button onclick="addTodo()">Add</button>
+
+<ul id="todoList">
+</ul>
+
+<script>
+    // Массив для хранения задач
+    let todos = [];
+
+    // Функция для отображения задач
+    function displayTodos() {
+        const todoList = document.getElementById('todoList');
+        todoList.innerHTML = '';
+        todos.forEach(todo => {
+            const li = document.createElement('li');
+            li.textContent = todo;
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Edit';
+            editButton.onclick = () => editTodo(todo);
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = () => deleteTodo(todo);
+            li.appendChild(editButton);
+            li.appendChild(deleteButton);
+            todoList.appendChild(li);
+        });
+    }
+
+    // Функция для добавления задачи
+    async function addTodo() {
+        const todoInput = document.getElementById('todoInput');
+        const todo = todoInput.value.trim();
+        if (todo !== '') {
+            todos.push(todo);
+            todoInput.value = '';
+            await displayTodos();
+        }
+    }
+
+    // Функция для редактирования задачи
+    async function editTodo(todo) {
+        const newTodo = prompt('Edit task:', todo);
+        if (newTodo !== null && newTodo.trim() !== '') {
+            const index = todos.indexOf(todo);
+            if (index !== -1) {
+                todos[index] = newTodo.trim();
+                await displayTodos();
+            }
+        }
+    }
+
+    // Функция для удаления задачи
+    async function deleteTodo(todo) {
+        const index = todos.indexOf(todo);
+        if (index !== -1) {
+            todos.splice(index, 1);
+            await displayTodos();
+        }
+    }
+
+    // Инициализация отображения задач при загрузке страницы
+    displayTodos();
+</script>
+
+</body>
+</html>
