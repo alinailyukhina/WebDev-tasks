@@ -19,4 +19,4 @@ const numbers = generateRandomNumbers(10000000);
 
 const average = calculateAverage(numbers);
 
-document.getElementById("average").textContent = 'Среднее значение: ' + average;
+document.getElementById("average").textContent = 'Вот среднее значение: ' + average;
